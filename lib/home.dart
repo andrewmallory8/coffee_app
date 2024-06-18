@@ -6,52 +6,41 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.brown[50],
-      body: content(context),
-    );
-  }
-
-  Widget content(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Image.asset('assets/logo.png'),
-        ),
-        const SizedBox(
-          height: 30,
-        ),
-        const Text(
-          'COFFEE HOUSE',
-          style: TextStyle(
-            color: Colors.brown,
-            fontSize: 45,
-            fontStyle: FontStyle.italic,
+      body: ListView(
+        children: [
+          const SizedBox(
+            height: 30,
           ),
-        ),
-        const SizedBox(
-          height: 100,
-        ),
-        GestureDetector(
-          onTap: (() => Navigator.of(context).pushNamed('/menu')),
-          child: Container(
-            height: 60,
-            width: 130,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20), color: Colors.brown),
-            child: const Center(
-              child: Text(
-                'Start Order',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
+          Image.asset(
+            'assets/logo.png',
+            width: 500,
+            height: 500,
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          const Center(
+            child: Text(
+              'COFFEE HOUSE',
+              style: TextStyle(
+                fontSize: 45,
+                fontStyle: FontStyle.italic,
               ),
             ),
           ),
-        ),
-      ],
+          const SizedBox(
+            height: 60,
+          ),
+          Center(
+            child: ElevatedButton(
+              onPressed: (() => Navigator.of(context).pushNamed('/menu')),
+              child: const Text(
+                'Start Order',
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

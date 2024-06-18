@@ -12,38 +12,38 @@ class Menu extends StatelessWidget {
       'Latte',
       'Macchiato'
     ];
+
     return Scaffold(
       appBar: AppBar(
         title: const Text(
           'MENU',
-          style: TextStyle(
-            color: Colors.brown,
-            fontSize: 40,
-            fontStyle: FontStyle.italic,
-          ),
         ),
-        backgroundColor: Colors.brown[50],
-        toolbarHeight: 100,
-        actions: const [
+        actions: [
           Padding(
-            padding: EdgeInsets.only(right: 12.0),
-            child: Icon(
-              Icons.search,
-              color: Colors.brown,
-              size: 40,
+            padding: const EdgeInsets.only(right: 12.0),
+            child: IconButton(
+              onPressed: () => print('search'),
+              icon: const Icon(Icons.search),
             ),
           )
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.menu), label: ''),
-        BottomNavigationBarItem(icon: Icon(Icons.settings), label: ''),
+        BottomNavigationBarItem(icon: Icon(Icons.menu), label: 'Menu'),
+        BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Settings'),
       ]),
-      body: content(coffeeTitle),
+      body: _Contents(coffeeTitle),
     );
   }
+}
 
-  Widget content(List<String> coffeeTitle) {
+class _Contents extends StatelessWidget {
+  const _Contents(this.coffeeTitle);
+
+  final List<String> coffeeTitle;
+
+  @override
+  Widget build(BuildContext context) {
     return Column(
       children: [
         const SizedBox(
@@ -72,14 +72,13 @@ class Menu extends StatelessWidget {
         const SizedBox(
           height: 20,
         ),
-        ListView.builder(
-            itemCount: coffeeTitle.length,
-            shrinkWrap: true,
-            itemBuilder: ((context, index) {
-              return Padding(
-                padding: const EdgeInsets.all(25.0),
-                child: ListTile(
+        Expanded(
+          child: ListView.builder(
+              itemCount: coffeeTitle.length,
+              itemBuilder: ((context, index) {
+                return ListTile(
                   leading: Image.asset('assets/coffee_cup.png'),
+                  minTileHeight: 60,
                   title: Text(
                     coffeeTitle[index],
                     style: const TextStyle(
@@ -87,16 +86,16 @@ class Menu extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  trailing: GestureDetector(
-                    onTap: (() => Navigator.of(context).pushNamed('/details')),
-                    child: const Icon(
+                  onTap: (() => Navigator.of(context).pushNamed('/details')),
+                  trailing: const InkWell(
+                    child: Icon(
                       Icons.keyboard_arrow_right,
                       size: 30,
                     ),
                   ),
-                ),
-              );
-            }))
+                );
+              })),
+        )
       ],
     );
   }

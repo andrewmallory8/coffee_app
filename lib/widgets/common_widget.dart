@@ -44,21 +44,11 @@ class SubmitButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 60,
-      width: 130,
-      decoration: BoxDecoration(
-        color: Colors.brown,
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            print('click');
-          },
-          child: Text(title),
-        ),
-      ),
+    return ElevatedButton(
+      onPressed: () {
+        print('click');
+      },
+      child: Text(title),
     );
   }
 }

@@ -10,14 +10,8 @@ class Summary extends StatelessWidget {
       appBar: AppBar(
         title: const Text(
           'Summary',
-          style: TextStyle(
-            color: Colors.brown,
-            fontSize: 30,
-          ),
         ),
-        backgroundColor: Colors.brown[50],
         elevation: 0,
-        toolbarHeight: 100,
       ),
       body: content(),
     );
