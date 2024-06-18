@@ -1,8 +1,5 @@
 import 'package:coffee_app/widgets/common_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-
 
 class Summary extends StatelessWidget {
   const Summary({super.key});
@@ -11,16 +8,10 @@ class Summary extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "Summary",
-          style: TextStyle(
-            color: Colors.brown,
-            fontSize: 30,
-          ),
+        title: const Text(
+          'Summary',
         ),
-        backgroundColor: Colors.brown[50],
         elevation: 0,
-        toolbarHeight: 100,
       ),
       body: content(),
     );
@@ -31,18 +22,18 @@ class Summary extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: Column(
         children: [
-          Container(
+          SizedBox(
             width: double.infinity,
             height: 200,
             child: Image.asset('assets/image.png'),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
-          Column(
+          const Column(
             children: [
               Text(
-                "Order :",
+                'Order :',
                 style: TextStyle(
                   color: Colors.brown,
                   fontSize: 20,
@@ -52,11 +43,11 @@ class Summary extends StatelessWidget {
                 height: 20,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                padding: EdgeInsets.symmetric(horizontal: 10.0),
                 child: Row(
                   children: [
                     Text(
-                      "Latte",
+                      'Latte',
                       style: TextStyle(
                         color: Colors.brown,
                         fontSize: 20,
@@ -64,7 +55,7 @@ class Summary extends StatelessWidget {
                     ),
                     Spacer(),
                     Text(
-                      "x1",
+                      'x1',
                       style: TextStyle(
                         color: Colors.brown,
                         fontSize: 20,
@@ -77,25 +68,25 @@ class Summary extends StatelessWidget {
                 height: 50,
               ),
               Text(
-                "---------------------------------------------",
+                '---------------------------------------------',
                 style: TextStyle(color: Colors.brown),
               ),
               SizedBox(
                 height: 20,
               ),
-              summaryDisplay("Total", "XXX.XX"),
+              SummaryDisplay(title: 'Total', subtitle: 'XXX.XX'),
               SizedBox(
                 height: 20,
               ),
-              summaryDisplay("Tax", "XX.XX"),
+              SummaryDisplay(title: 'Tax', subtitle: 'XX.XX'),
               SizedBox(
                 height: 20,
               ),
-              summaryDisplay("Discount", "X.XX"),
+              SummaryDisplay(title: 'Discount', subtitle: 'X.XX'),
               SizedBox(
                 height: 100,
               ),
-              submitButton("Pay")
+              SubmitButton(title: 'Pay')
             ],
           )
         ],

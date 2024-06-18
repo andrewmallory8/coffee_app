@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class Menu extends StatelessWidget {
   const Menu({super.key});
@@ -8,47 +6,47 @@ class Menu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<String> coffeeTitle = [
-      "Espresso",
-      "Cappuccino",
-      "Mocha",
-      "Latte",
-      "Macchiato"
+      'Espresso',
+      'Cappuccino',
+      'Mocha',
+      'Latte',
+      'Macchiato'
     ];
+
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "MENU",
-          style: TextStyle(
-            color: Colors.brown,
-            fontSize: 40,
-            fontStyle: FontStyle.italic,
-          ),
+        title: const Text(
+          'MENU',
         ),
-        backgroundColor: Colors.brown[50],
-        toolbarHeight: 100,
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 12.0),
-            child: Icon(
-              Icons.search,
-              color: Colors.brown,
-              size: 40,
+            child: IconButton(
+              onPressed: () => print('search'),
+              icon: const Icon(Icons.search),
             ),
           )
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(items: [
-        BottomNavigationBarItem(icon: Icon(Icons.menu), label: ""),
-        BottomNavigationBarItem(icon: Icon(Icons.settings), label: ""),
+      bottomNavigationBar: BottomNavigationBar(items: const [
+        BottomNavigationBarItem(icon: Icon(Icons.menu), label: 'Menu'),
+        BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Settings'),
       ]),
-      body: content(coffeeTitle),
+      body: _Contents(coffeeTitle),
     );
   }
+}
 
-  Widget content(List<String> coffeeTitle) {
+class _Contents extends StatelessWidget {
+  const _Contents(this.coffeeTitle);
+
+  final List<String> coffeeTitle;
+
+  @override
+  Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
         Padding(
@@ -60,9 +58,9 @@ class Menu extends StatelessWidget {
                   fontSize: 40,
                   color: Colors.brown[900],
                 ),
-                children: [
+                children: const [
                   TextSpan(
-                    text: "Day for Coffee.",
+                    text: 'Day for Coffee.',
                     style: TextStyle(
                       color: Colors.brown,
                       fontSize: 40,
@@ -71,36 +69,34 @@ class Menu extends StatelessWidget {
                 ]),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
-        ListView.builder(
-            itemCount: coffeeTitle.length,
-            shrinkWrap: true,
-            itemBuilder: ((context, index) {
-              return Padding(
-                padding: const EdgeInsets.all(25.0),
-                child: ListTile(
+        Expanded(
+          child: ListView.builder(
+              itemCount: coffeeTitle.length,
+              itemBuilder: ((context, index) {
+                return ListTile(
                   leading: Image.asset('assets/coffee_cup.png'),
+                  minTileHeight: 60,
                   title: Text(
                     coffeeTitle[index],
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  trailing: GestureDetector(
-                    onTap: (() => Navigator.of(context).pushNamed('/details')),
+                  onTap: (() => Navigator.of(context).pushNamed('/details')),
+                  trailing: const InkWell(
                     child: Icon(
                       Icons.keyboard_arrow_right,
                       size: 30,
                     ),
                   ),
-                ),
-              );
-            }))
+                );
+              })),
+        )
       ],
     );
   }
 }
-

@@ -1,43 +1,54 @@
 import 'package:flutter/material.dart';
 
-Widget summaryDisplay(String title, String subtitle) {
-  return Row(
-    children: [
-      Text(
-        title,
-        style: TextStyle(
-          color: Colors.brown,
-          fontSize: 20,
+class SummaryDisplay extends StatelessWidget {
+  const SummaryDisplay({
+    super.key,
+    required this.title,
+    required this.subtitle,
+  });
+
+  final String title;
+  final String subtitle;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Text(
+          title,
+          style: const TextStyle(
+            color: Colors.brown,
+            fontSize: 20,
+          ),
         ),
-      ),
-      Spacer(),
-      Text(
-        subtitle,
-        style: TextStyle(
-          color: Colors.brown,
-          fontSize: 20,
-        ),
-      )
-    ],
-  );
+        const Spacer(),
+        Text(
+          subtitle,
+          style: const TextStyle(
+            color: Colors.brown,
+            fontSize: 20,
+          ),
+        )
+      ],
+    );
+  }
 }
 
-Widget submitButton(String title) {
-  return Container(
-    height: 60,
-    width: 130,
-    decoration: BoxDecoration(
-      color: Colors.brown,
-      borderRadius: BorderRadius.circular(20),
-    ),
-    child: Center(
-      child: Text(
-        title,
-        style: TextStyle(
-          color: Colors.white,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-    ),
-  );
+class SubmitButton extends StatelessWidget {
+  const SubmitButton({
+    super.key,
+    required this.title,
+  });
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: () {
+        print('click');
+      },
+      child: Text(title),
+    );
+  }
 }

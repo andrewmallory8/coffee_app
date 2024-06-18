@@ -1,0 +1,18 @@
+{
+  "dart.closingLabels": false,
+  // copied from: https://dartcode.org/docs/recommended-settings/
+  // Causes the debug view to automatically appear when a breakpoint is hit. This
+  // setting is global and not configurable per-language.
+  "debug.openDebug": "openOnDebugBreak",
+  "[yaml]": {
+    "editor.formatOnSave": true
+  },
+
+  "editor.bracketPairColorization.enabled": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit",
+    "quickfix.insertSemicolon": "explicit"
+  },
+  "editor.formatOnSave": true
+}
