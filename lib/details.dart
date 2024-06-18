@@ -1,8 +1,5 @@
 import 'package:coffee_app/widgets/common_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-
 
 class Details extends StatelessWidget {
   const Details({super.key});
@@ -11,8 +8,8 @@ class Details extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "Latte",
+        title: const Text(
+          'Latte',
           style: TextStyle(color: Colors.brown, fontSize: 30),
         ),
         backgroundColor: Colors.brown[50],
@@ -33,7 +30,7 @@ class Details extends StatelessWidget {
             color: Colors.brown[50],
             child: Image.asset('assets/coffee_cup.png'),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Padding(
@@ -41,10 +38,10 @@ class Details extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
+                const Row(
                   children: [
                     Text(
-                      "Latte",
+                      'Latte',
                       style: TextStyle(fontSize: 20, color: Colors.brown),
                     ),
                     Spacer(),
@@ -52,9 +49,9 @@ class Details extends StatelessWidget {
                       children: [
                         Icon(Icons.remove),
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                          padding: EdgeInsets.symmetric(horizontal: 15.0),
                           child: Text(
-                            "1",
+                            '1',
                             style: TextStyle(
                               fontSize: 20,
                               color: Colors.brown,
@@ -66,11 +63,11 @@ class Details extends StatelessWidget {
                     )
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
-                Text(
-                  "Size",
+                const Text(
+                  'Size',
                   style: TextStyle(
                     fontSize: 20,
                     color: Colors.brown,
@@ -78,38 +75,38 @@ class Details extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    Container(
+                    SizedBox(
                       height: 80,
                       width: 80,
                       child: Image.asset('assets/coffee_cup.png'),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
-                    Container(
+                    SizedBox(
                       height: 100,
                       width: 100,
                       child: Image.asset('assets/coffee_cup.png'),
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
-                Text(
-                  "Sugar",
+                const Text(
+                  'Sugar',
                   style: TextStyle(
                     color: Colors.brown,
                     fontSize: 20,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
-                Row(
+                const Row(
                   children: [
                     Text(
-                      "0%",
+                      '0%',
                       style: TextStyle(
                         color: Colors.brown,
                         fontSize: 20,
@@ -119,7 +116,7 @@ class Details extends StatelessWidget {
                       width: 40,
                     ),
                     Text(
-                      "25%",
+                      '25%',
                       style: TextStyle(
                         color: Colors.brown,
                         fontSize: 20,
@@ -129,7 +126,7 @@ class Details extends StatelessWidget {
                       width: 40,
                     ),
                     Text(
-                      "50%",
+                      '50%',
                       style: TextStyle(
                         color: Colors.brown,
                         fontSize: 20,
@@ -139,7 +136,7 @@ class Details extends StatelessWidget {
                       width: 40,
                     ),
                     Text(
-                      "100%",
+                      '100%',
                       style: TextStyle(
                         color: Colors.brown,
                         fontSize: 20,
@@ -150,12 +147,15 @@ class Details extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 80,
           ),
           GestureDetector(
-              onTap: (() => Navigator.of(context).pushNamed("/summary")),
-              child: submitButton("Add to cart"))
+              onTap: (() => Navigator.of(context).pushNamed('/summary')),
+              child: const SummaryDisplay(
+                title: 'Add to cart',
+                subtitle: '',
+              ))
         ],
       ),
     );

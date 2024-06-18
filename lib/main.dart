@@ -4,13 +4,9 @@ import 'package:coffee_app/menu.dart';
 import 'package:coffee_app/summary.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(MaterialApp(
-  debugShowCheckedModeBanner: false,
-  routes: {
-    "/": (context) => Home(),
-    "/menu":((context) => Menu()),
-    "/details": ((context) => Details()),
-    "/summary": ((context) => Summary()),
-  }
-));
-
+void main() => runApp(MaterialApp(debugShowCheckedModeBanner: false, routes: {
+      '/': (context) => const Home(),
+      '/menu': ((context) => const Menu()),
+      '/details': ((context) => const Details()),
+      '/summary': ((context) => const Summary()),
+    }));

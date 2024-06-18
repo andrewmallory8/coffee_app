@@ -17,34 +17,32 @@ class Home extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.all(20.0),
-          child: Container(
-            child: Image.asset('assets/logo.png'),
-          ),
+          child: Image.asset('assets/logo.png'),
         ),
-        SizedBox(
+        const SizedBox(
           height: 30,
         ),
-        Text(
-          "COFFEE HOUSE",
+        const Text(
+          'COFFEE HOUSE',
           style: TextStyle(
             color: Colors.brown,
             fontSize: 45,
             fontStyle: FontStyle.italic,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 100,
         ),
         GestureDetector(
-          onTap: (() => Navigator.of(context).pushNamed("/menu")),
+          onTap: (() => Navigator.of(context).pushNamed('/menu')),
           child: Container(
             height: 60,
             width: 130,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20), color: Colors.brown),
-            child: Center(
+            child: const Center(
               child: Text(
-                "Start Order",
+                'Start Order',
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,

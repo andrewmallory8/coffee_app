@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class Menu extends StatelessWidget {
   const Menu({super.key});
@@ -8,16 +6,16 @@ class Menu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<String> coffeeTitle = [
-      "Espresso",
-      "Cappuccino",
-      "Mocha",
-      "Latte",
-      "Macchiato"
+      'Espresso',
+      'Cappuccino',
+      'Mocha',
+      'Latte',
+      'Macchiato'
     ];
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "MENU",
+        title: const Text(
+          'MENU',
           style: TextStyle(
             color: Colors.brown,
             fontSize: 40,
@@ -26,9 +24,9 @@ class Menu extends StatelessWidget {
         ),
         backgroundColor: Colors.brown[50],
         toolbarHeight: 100,
-        actions: [
+        actions: const [
           Padding(
-            padding: const EdgeInsets.only(right: 12.0),
+            padding: EdgeInsets.only(right: 12.0),
             child: Icon(
               Icons.search,
               color: Colors.brown,
@@ -37,9 +35,9 @@ class Menu extends StatelessWidget {
           )
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(items: [
-        BottomNavigationBarItem(icon: Icon(Icons.menu), label: ""),
-        BottomNavigationBarItem(icon: Icon(Icons.settings), label: ""),
+      bottomNavigationBar: BottomNavigationBar(items: const [
+        BottomNavigationBarItem(icon: Icon(Icons.menu), label: ''),
+        BottomNavigationBarItem(icon: Icon(Icons.settings), label: ''),
       ]),
       body: content(coffeeTitle),
     );
@@ -48,7 +46,7 @@ class Menu extends StatelessWidget {
   Widget content(List<String> coffeeTitle) {
     return Column(
       children: [
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
         Padding(
@@ -60,9 +58,9 @@ class Menu extends StatelessWidget {
                   fontSize: 40,
                   color: Colors.brown[900],
                 ),
-                children: [
+                children: const [
                   TextSpan(
-                    text: "Day for Coffee.",
+                    text: 'Day for Coffee.',
                     style: TextStyle(
                       color: Colors.brown,
                       fontSize: 40,
@@ -71,7 +69,7 @@ class Menu extends StatelessWidget {
                 ]),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
         ListView.builder(
@@ -84,14 +82,14 @@ class Menu extends StatelessWidget {
                   leading: Image.asset('assets/coffee_cup.png'),
                   title: Text(
                     coffeeTitle[index],
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   trailing: GestureDetector(
                     onTap: (() => Navigator.of(context).pushNamed('/details')),
-                    child: Icon(
+                    child: const Icon(
                       Icons.keyboard_arrow_right,
                       size: 30,
                     ),
@@ -103,4 +101,3 @@ class Menu extends StatelessWidget {
     );
   }
 }
-
